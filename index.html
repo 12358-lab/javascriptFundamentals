@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="classes.css">
+  <script src="logic.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+  <title>Javascript cheat sheet</title>
+</head>
+
+<body>
+  <div class="header">
+    Javascript cheat sheet
+  </div>
+  <div class="container">
+    <div class="block">
+      <div class="blockHeader">
+        <span>DATA TYPES - I. Primitives</span>
+        <button type="button" onclick=numberReview()>See console</button>
+      </div>
+      <pre class="preBlock"> <code class="language-js">//I.1 Numbers
+  let decimal = 10;
+  let octal = 102;
+  let hexadecimal = 0xF;
+  let floatingPoint = 2.5;
+
+  console.log('isFinite: ' + isFinite(2));
+  console.log("isNaN('test' / 2): " + isNaN('test' / 2));
+  
+  //I.2 Strings
+  let doubleQuote= "Hello";
+  let singleQuote= 'Halo';
+  let backticks= `Hello ${1+3}`;
+  console.log('`Hello ${1+3}`: ' + backticks);
+
+  //I.3 Boolean
+  let bool=true;
+
+  //I.4 Symbol, is used to create unique identifiers for objects
+  let symbol = Symbol("id");</code>
+    </pre>
+    </div>
+    <div class="block">
+      <div class="blockHeader">
+        <span>DATA TYPES - II. Trivial</span>
+        <button type="button" onclick=numberReview()>See console</button>
+      </div>
+      <pre class="preBlock"> <code class="language-js">  //II.1 null
+  let nullable= null;
+  console.log('typeof nullable returns object: ' + typeof nullable);
+
+  //II.2 undefined
+  let undefinedValue;
+  console.log('undefinedValue: ' + undefinedValue);</code>
+    </pre>
+    </div>
+    <div class="block">
+      <div class="blockHeader">
+        <span>DATA TYPES - III. Composite</span>
+        <button type="button" onclick=numberReview()>See console</button>
+      </div>
+      <pre class="preBlock"> <code class="language-js">  //III.1. Objects
+  console.log('typeof Math: ' + typeof Math);
+
+  //III.2 Arrays
+
+  //III.3 Functions
+  console.log('typeof alert: ' + typeof alert);</code>
+      </pre>
+    </div>
+
+    <div class="block">
+      <div class="blockHeader">
+        <span>Type Conversions</span>
+        <button type="button" onclick=conversions()>See console</button>
+      </div>
+      <pre class="preBlock"> <code class="language-js"> let val = String(false);
+  console.log('String(false): ' + val);
+
+  let num = Number(val)
+  console.log(typeof num);
+  console.log(Number(undefined)); //NaN
+  console.log(Number(null)); //0
+  console.log(Number(true)); //1
+  console.log(Number('string')); //NaN
+
+  console.log(Boolean(undefined)); //false
+  console.log(Boolean(null)); //false
+  console.log(Boolean('0')); //true
+  console.log(Boolean(0)); //false
+  console.log(Boolean(1)); //true
+  console.log(Boolean('string')); //true</code>
+        </pre>
+    </div>
+    <div class="block">
+      <div class="blockHeader">
+        <span>OPERATORS</span>
+        <button type="button" onclick=operators()>See console</button>
+      </div>
+      <pre class="preBlock"> <code class="language-js">//Operator = always return a value
+  console.log('Remainder %:' + 5 % 2);
+  console.log('Exponentiation **:' + 5 ** 2);
+
+  let counter = 1;
+  let a = ++counter;
+  let b= counter++;
+  console.log('let a = ++counter; ' + a);
+  console.log('let b= counter++; ', b);</code>
+      </pre>
+    </div>
+
+    <div class="block">
+      <div class="blockHeader">
+        <span>Comparisons</span>
+        <button type="button" onclick=comparisons()>See console</button>
+      </div>
+      <pre class="preBlock"> <code class="language-js">//When comparing values of different types, 
+  //JavaScript converts the values to numbers.
+  console.log('01'== 1); //true
+  console.log('01'=== 1); //false
+  console.log(null == undefined ); // true
+  console.log(null === undefined ); // false
+  //Avoid to use comparisons >= > < <= with a variable 
+  //which may be null/undefined</code>
+        </pre>
+    </div>
+
+    <div class="block">
+      <div class="blockHeader">
+        <span>Conditionals</span>        
+      </div>
+      <pre class="preBlock"> <code class="language-js">if (a=== 1) {
+
+  } else {
+
+  }
+  
+  let result = condition ? value1 : value2;
+
+  switch(x) {
+    case 'value1':
+      //do something
+      break; //optional
+  
+    case 'value2':  // if (x === 'value2')
+      //do something
+  
+    default:
+      //do something
+  }</code>
+          </pre>
+    </div>
+
+    <div class="block">
+      <div class="blockHeader">
+        <span>logical operators</span>
+        <button type="button" onclick=logicalOperators()>See console</button>
+      </div>
+      <pre class="preBlock"> <code class="language-js">//OR “||” finds the first truthy value
+  console.log( 1 || 0 ); // 1 (1 is truthy)
+  console.log( true || 'no matter what' ); // (true is truthy)
+
+  console.log( null || 1 ); // 1 (1 is the first truthy value)
+  console.log( null || 0 || 1 ); // 1 (the first truthy value)
+  console.log( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+  console.log(null || undefined || 'something') //'something'
+
+  //AND “&&” finds the first falsy value
+  //can replace an if statement, as OR
+  ( 10 > 5) && console.log('10 is greater than 5')
+
+  //! (NOT), Converts the operand to boolean type: true/false.
+  //return the inverse value
+  console.log(!0) //1</code>
+            </pre>
+    </div>
+
+    <div class="block">
+      <div class="blockHeader">
+        <span>loops</span>        
+      </div>
+      <pre class="preBlock"> <code class="language-js">while (condition) {
+    // do something
+    continue; //optional, goes to next iteration
+    break; //optional
+  }
+
+  do {
+    // something
+  } while (condition);
+
+  forLabel: for (let i = 0; condition; i++) {
+
+    for (let j = 0; condition; j++) {
+      //do something
+      if (condition) break forLabel; // (*)
+      // do something else
+      continue; //optional, goes to next iteration
+      // do more stuff
+    }
+  }</code>
+      </pre>
+    </div>
+    <div class="block">
+      <div class="blockHeader">
+        <span>Function declaration and expression</span>        
+      </div>
+      <pre class="preBlock"> <code class="language-js">// Function Declaration. Can be called earlier it is defined
+  function sum(a, b) {
+    return a + b;
+  }
+
+  // Function Expression. Is created when the execution reaches
+  let sum = function(a, b) {
+    return a + b;
+  };
+
+  //Shorter version
+  let sum = (a, b) => a + b;
+    }
+  }</code>
+      </pre>
+    </div>
+
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+
+</html>
