@@ -1,6 +1,6 @@
 function functionDeclaration() {
   // Function Declaration. Can be called earlier it is defined
-  function sum(a, b) {
+  function sumFunction(a, b) {
     return a + b;
   }
 
@@ -10,21 +10,21 @@ function functionDeclaration() {
   };
 
   //Shorter version
-  let sum = (a, b) => a + b;
+  let sumShorter = (a, b) => a + b;
 
 }
 
 function functions() {
   //parameters are passed by value
-  function doSomething (paramA, paramB = 'default value') {
+  function doSomething1 (paramA, paramB = 'default value') {
     return value;
   }
   //Is the same as
-  let doSomething = function(paramA, paramB = 'default value') {
+  let doSomething2 = function(paramA, paramB = 'default value') {
     return value;
   }
   
-  function doSomething (paramA, paramB = anotherFunction()) {
+  function doSomething3 (paramA, paramB = anotherFunction()) {
 
   }
   //This returns undefined because return is missing.
